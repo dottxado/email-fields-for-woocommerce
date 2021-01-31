@@ -1,0 +1,34 @@
+{
+  "name": "dottxado/email-fields-for-woocommerce",
+  "description": "Manage Reply To and BCC of the WooCommerce emails",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Erika Gili",
+      "email": "ing.erika.gili@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "inpsyde/php-coding-standards": "^0.13",
+    "phpunit/phpunit": "^8",
+    "brain/monkey": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dottxado\\EmailFieldsForWoocommerce\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Dottxado\\EmailFieldsForWoocommerce\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
