@@ -2,7 +2,7 @@
   "name": "dottxado/email-fields-for-woocommerce",
   "description": "Manage Reply To and BCC of the WooCommerce emails",
   "minimum-stability": "dev",
-  "license": "proprietary",
+  "license": "GPLv3",
   "type": "wordpress-plugin",
   "authors": [
     {
