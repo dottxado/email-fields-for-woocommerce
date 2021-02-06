@@ -18,8 +18,8 @@ class GeneralFields
     {
         add_filter('woocommerce_email_settings', [$this, 'addReplyToSettings']);
         add_filter('woocommerce_email_settings', [$this, 'addBccSettings']);
-        add_filter('woocommerce_email_headers', [$this, 'addReplyToHeader']);
-        add_filter('woocommerce_email_headers', [$this, 'addBccHeader']);
+        add_filter('woocommerce_email_headers', [$this, 'addReplyToHeader'], 90);
+        add_filter('woocommerce_email_headers', [$this, 'addBccHeader'], 90);
     }
 
     public static function instance(): GeneralFields
@@ -114,16 +114,25 @@ class GeneralFields
 
     public function addReplyToHeader(string $headers): string
     {
-        if (false !== strpos($headers, 'Reply-to')) {
-            return $headers;
-        }
         $optionName = wp_specialchars_decode(
             get_option(self::OPTION_REPLY_TO_NAME, ''),
             ENT_QUOTES
         );
         $optionEmail = sanitize_email(get_option(self::OPTION_REPLY_TO_EMAIL, ''));
-        if (!empty($optionEmail) && !empty($optionName) && is_email($optionEmail)) {
-            $headers .= "Reply-to: $optionName <$optionEmail>\r\n";
+        if (empty($optionEmail) || empty($optionName) || !is_email($optionEmail)) {
+            return $headers;
+        }
+        $newReplyToHeader = "Reply-to: $optionName <$optionEmail>\r\n";
+        $replyToCheck = '/Reply-to:.+?\\n/';
+        $headers = preg_replace(
+            $replyToCheck,
+            $newReplyToHeader,
+            $headers,
+            1,
+            $count
+        );
+        if (0 === $count) {
+            $headers .= $newReplyToHeader;
         }
 
         return $headers;
@@ -131,12 +140,15 @@ class GeneralFields
 
     public function addBccHeader(string $headers): string
     {
-        if (false !== strpos($headers, 'Bcc')) {
+        $optionEmail = sanitize_email(get_option(self::OPTION_BCC_EMAIL, ''));
+        if (empty($optionEmail) || !empty($optionName) || !is_email($optionEmail)) {
             return $headers;
         }
-        $optionEmail = sanitize_email(get_option(self::OPTION_BCC_EMAIL, ''));
-        if (!empty($optionEmail) && !empty($optionName) && is_email($optionEmail)) {
-            $headers .= "Bcc: $optionEmail\r\n";
+        $newBccHeader = "Bcc: $optionEmail\r\n";
+        $bccCheck = '/Bcc:.+?\\n/';
+        $headers = preg_replace($bccCheck, $newBccHeader, $headers, 1, $count);
+        if (0 === $count) {
+            $headers .= $newBccHeader;
         }
 
         return $headers;
