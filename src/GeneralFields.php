@@ -56,7 +56,7 @@ class GeneralFields
             [
                 'title' => __('"Reply-To" address', 'email-fields-for-woocommerce'),
                 'desc' => __(
-                    'The Reply-To email address in outgoing WooCommerce emails.',
+                    'The Reply-To email address in outgoing WooCommerce emails. Add only one.',
                     'email-fields-for-woocommerce'
                 ),
                 'id' => 'effw_reply_to_address',
@@ -90,7 +90,7 @@ class GeneralFields
             [
                 'title' => __('"Bcc" address', 'email-fields-for-woocommerce'),
                 'desc' => __(
-                    'Add a blind carbon copy address in outgoing WooCommerce emails.',
+                    'Add one blind carbon copy address in outgoing WooCommerce emails.',
                     'email-fields-for-woocommerce'
                 ),
                 'id' => 'effw_bcc_address',
@@ -118,7 +118,7 @@ class GeneralFields
             get_option(self::OPTION_REPLY_TO_NAME, ''),
             ENT_QUOTES
         );
-        $optionEmail = sanitize_email(get_option(self::OPTION_REPLY_TO_EMAIL, ''));
+        $optionEmail = get_option(self::OPTION_REPLY_TO_EMAIL, '');
         if (empty($optionEmail) || empty($optionName) || !is_email($optionEmail)) {
             return $headers;
         }
@@ -140,7 +140,7 @@ class GeneralFields
 
     public function addBccHeader(string $headers): string
     {
-        $optionEmail = sanitize_email(get_option(self::OPTION_BCC_EMAIL, ''));
+        $optionEmail = get_option(self::OPTION_BCC_EMAIL, '');
         if (empty($optionEmail) || !empty($optionName) || !is_email($optionEmail)) {
             return $headers;
         }
