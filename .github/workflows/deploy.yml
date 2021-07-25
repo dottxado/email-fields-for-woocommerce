@@ -1,5 +1,10 @@
 name: Deploy to WordPress.org
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: 'Release tag'
+        required: true
 jobs:
   tag:
     name: New tag
@@ -13,3 +18,4 @@ jobs:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           ASSETS_DIR: assets
+          VERSION: ${{ github.event.inputs.releaseVersion }}
