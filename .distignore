@@ -1,0 +1,8 @@
+/.github
+/assets
+/tests
+
+/.distignore
+/.gitignore
+/composer.json
+/README.md
