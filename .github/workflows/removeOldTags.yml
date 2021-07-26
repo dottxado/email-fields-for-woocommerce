@@ -1,0 +1,15 @@
+name: Remove old tags from SVN
+on:
+  workflow_dispatch:
+    inputs:
+      tag-to-remove:
+        description: 'Tag to remove'
+        required: true
+jobs:
+  remove-tag:
+    runs-on: ubuntu-latest
+    name: Remove the tag
+    steps:
+      - uses: dottxado/action-wordpress-svn-tag-cleaner
+        with:
+          tag-to-remove: ${{ github.event.inputs.tag-to-remove }}
