@@ -36,6 +36,11 @@ No, these two fields will be used for all WooCommerce emails, but if there are r
 
 == Changelog ==
 
+= 1.3 =
+* Small refactor of the internal structure of the code
+* Update of some dependencies
+* Changed some links
+
 = 1.2 =
 * Update of the tested version.
 
