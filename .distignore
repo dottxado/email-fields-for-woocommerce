@@ -7,3 +7,4 @@
 /.gitignore
 /composer.json
 /README.md
+/phpunit.xml.dist
