@@ -14,7 +14,7 @@ class GeneralFieldsTest extends TestCase
 {
     public function testAddedHooks()
     {
-        GeneralFields::instance();
+        new GeneralFields();
         self::assertNotFalse(
             has_filter(
                 'woocommerce_email_settings',
@@ -44,7 +44,7 @@ class GeneralFieldsTest extends TestCase
     public function testAddedReplyToSettings()
     {
         stubTranslationFunctions();
-        $generalFields = GeneralFields::instance();
+        $generalFields = new GeneralFields();
         $newConfigurations = $generalFields->addReplyToSettings([]);
         self::assertCount(4, $newConfigurations);
         self::assertCount(4, $newConfigurations[0]);
@@ -60,7 +60,7 @@ class GeneralFieldsTest extends TestCase
     public function testAddedBccSettings()
     {
         stubTranslationFunctions();
-        $generalFields = GeneralFields::instance();
+        $generalFields = new GeneralFields();
         $newConfigurations = $generalFields->addBccSettings([]);
         self::assertCount(3, $newConfigurations);
         self::assertCount(4, $newConfigurations[0]);
@@ -87,7 +87,7 @@ class GeneralFieldsTest extends TestCase
         );
         when('sanitize_email')->returnArg();
         when('is_email')->justReturn(true);
-        $generalFields = GeneralFields::instance();
+        $generalFields = new GeneralFields();
         $headers = $generalFields->addReplyToHeader('');
         self::assertStringContainsString('Test name', $headers);
         self::assertStringContainsString('test@email.com', $headers);

@@ -6,29 +6,18 @@ namespace Dottxado\EmailFieldsForWoocommerce;
 
 class GeneralFields
 {
-    private static $instance;
-
     const OPTION_REPLY_TO_NAME = 'effw_reply_to_name';
 
     const OPTION_REPLY_TO_EMAIL = 'effw_reply_to_address';
 
     const OPTION_BCC_EMAIL = 'effw_bcc_address';
 
-    private function __construct()
+    public function __construct()
     {
         add_filter('woocommerce_email_settings', [$this, 'addReplyToSettings']);
         add_filter('woocommerce_email_settings', [$this, 'addBccSettings']);
         add_filter('woocommerce_email_headers', [$this, 'addReplyToHeader'], 90);
         add_filter('woocommerce_email_headers', [$this, 'addBccHeader'], 90);
-    }
-
-    public static function instance(): GeneralFields
-    {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
     }
 
     public function addReplyToSettings(array $settings): array
