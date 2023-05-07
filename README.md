@@ -2,6 +2,10 @@
 
 Add or modify the Reply-to and Bcc addresses on WooCommerce emails.
 
+## Use it
+
+Install it directly from the [WordPress plugin repository](https://it.wordpress.org/plugins/email-fields-for-woocommerce/).
+
 ## Description
 
 This plugin can be used to globally modify the Reply-to and/or Bcc addresses used by WooCommerce for all its emails.
