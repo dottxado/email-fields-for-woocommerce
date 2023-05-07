@@ -7,7 +7,7 @@
  * Author URI:      https://tetracube.red
  * Text Domain:     email-fields-for-woocommerce
  * Domain Path:     /languages
- * Version:         1.2
+ * Version:         1.3.1
  */
 
 declare(strict_types=1);
