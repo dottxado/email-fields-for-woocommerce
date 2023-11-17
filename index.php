@@ -1,13 +1,12 @@
 <?php
 /**
  * Plugin Name:     Email Fields for WooCommerce
- * Plugin URI:      https://tetracube.red
  * Description:     Manage Reply To and BCC of the WooCommerce emails
  * Author:          Erika Gili
- * Author URI:      https://tetracube.red
+ * Author URI:      https://github.com/dottxado
  * Text Domain:     email-fields-for-woocommerce
  * Domain Path:     /languages
- * Version:         1.3.1
+ * Version:         1.4.0
  */
 
 declare(strict_types=1);
