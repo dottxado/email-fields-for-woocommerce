@@ -1,0 +1,9 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/admin.php?page=wc-settings&tab=email",
+  "plugins": [
+    "woocommerce",
+    "email-fields-for-woocommerce"
+  ],
+  "login": true
+}
