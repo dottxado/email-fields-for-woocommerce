@@ -2,8 +2,8 @@
 Contributors: ingerikagili
 Tags: bcc, reply to, woocommerce, email field, more email fields, bcc for woocommerce, reply to woocommerce
 Requires at least: 5.0
-Tested up to: 6.4
-Stable tag: 1.4.0
+Tested up to: 6.7
+Stable tag: 1.5.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -35,6 +35,10 @@ No, these two fields will be used for all WooCommerce emails, but if there are r
 
 
 == Changelog ==
+
+= 1.5.0 =
+* Update version for WordPress repository
+* Add WordPress Playground blueprint to test the plugin
 
 = 1.4.0 =
 * Update version for WordPress repository, change some URLs
