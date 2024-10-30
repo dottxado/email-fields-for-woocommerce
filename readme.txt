@@ -36,7 +36,7 @@ No, these two fields will be used for all WooCommerce emails, but if there are r
 
 == Changelog ==
 
-= 1.5.0 =
+= 1.5.1 =
 * Update version for WordPress repository
 * Add WordPress Playground blueprint to test the plugin
 
