@@ -6,7 +6,7 @@
  * Author URI:      https://github.com/dottxado
  * Text Domain:     email-fields-for-woocommerce
  * Domain Path:     /languages
- * Version:         1.5.0
+ * Version:         1.5.1
  */
 
 declare(strict_types=1);
